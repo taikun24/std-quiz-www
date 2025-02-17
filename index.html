@@ -37,7 +37,7 @@
                 </div>`;
             }
             window.onload = async function(){
-                const response = await fetch('../data/quizs.json');
+                const response = await fetch('data/quizs.json');
                 const json = await response.json();
                 var html = '';
                 for(var key in json){
