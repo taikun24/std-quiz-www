@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>StdQuiz - Home</title>
+        <meta name="description" content="StdQuizは問題やクイズで勉強することの出来るサイトです。">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Std Quiz" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+    </head>
+    <body>
+        <header>
+            <h1>STD QUIZ</h1>
+        </header>
+        <hr>
+        <h1>
+            エラーが発生しました！
+        </h1>
+        <h1 id="info"></h1>
+        <hr>
+        <p>エラーの詳細：</p>
+        <p id="desc"></p>
+        <h1><a href="./index.html">ホームへ戻る</a></h1>
+        <script>
+            const format = (str, ...args) => {
+                for (const [i, arg] of args.entries()) {
+                    const regExp = new RegExp(`\\{${i}\\}`, 'g')
+                    str = str.replace(regExp, arg)
+                }
+                return str
+            };
+            const info_text = {invaild_id: "不明な問題IDです!",
+                no_params: "パラメーターがありません！",
+                invaild_quiz: "無効なクイズです！",
+                invaild_tool: "無効なツールです！"
+            }
+            const desc_text = {invaild_id: "ID \"{0}\" に相当する問題を見つけることが出来ませんでした。",
+                no_params: "quiz.htmlにパラメーター \"q\" が渡されませんでした。<br><b>quiz.htmlに直接アクセスしないでください!</b>",
+                invaild_quiz: "クイズのデータが無効です。",
+                invaild_tool: "ツール( ID \"{0}\" )を見つけることができませんでした。"
+            }
+            let url = new URL(window.location.href);
+            let params = url.searchParams;
+            var type = params.get('type');
+            info.innerText=info_text[type]?info_text[type]:'不明なエラーが発生しました';
+            desc.innerHTML = format(desc_text[type], atob(params.get('error')));
+        </script>
+    </body>
+</html>

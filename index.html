@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>StdQuiz - Home</title>
+        <meta name="description" content="StdQuizは問題やクイズで勉強することの出来るサイトです。">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Std Quiz" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+    </head>
+    <body>
+        <header>
+            <h1>STD QUIZ</h1>
+        </header>
+        <div style="display: flex;justify-content: center;align-items: center;"><h1 class="title">STD QUIZ</h1>
+            <img style="height: 100px;" src="favicon/favicon.svg"></div>
+        <main id="main">
+            
+        </main>
+        <script>
+            function go_to(link){
+                location.href = './quiz/'+link;
+            }
+            function getHTML(name, desc, url){
+                return `<div class="card">
+                    <h1 class="card-title">`+name+`</h1>
+                    <p>`+desc+`</p>
+                    <button class="card-button" onclick="go_to('`+url+`');">学習</button>
+                </div>`;
+            }
+            window.onload = async function(){
+                const response = await fetch('../../data/quizs.json');
+                const json = await response.json();
+                var html = '';
+                for(var key in json){
+                    html += getHTML(json[key].name, json[key].desc, key)
+                }
+                main.innerHTML = html;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>StdQuiz - Quiz</title>
+        <meta name="description" content="StdQuizは問題やクイズで勉強することの出来るサイトです。">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Std Quiz" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+    </head>
+    <body>
+        <div class="hide">
+            <audio src="resource/correct1.mp3" id="snd_correct"></audio>
+            <audio src="resource/wrong1.mp3" id="snd_wrong"></audio>
+        </div>
+        <header>
+            <h1><a href="../index.html">STD QUIZ</a></h1>
+            <a href="https://forms.gle/n4MXTPuiJGDJnS3E9">問題が間違っていますか？</a>
+        </header>
+        <div class="" id="s_start">
+            <h1 class="title" id="title">読み込み中...</h1>
+            <h2 id="info"></h2>
+            <h2 id="tags"></h2>
+            <h3 style="font-weight: 400;" id="description"></h3>
+            <div class="config">
+                <div class="config-d">
+                    <label for="filter-i">問題の出題範囲</label>
+                    <select name="filter-i" id="filter-i">
+                        <option value="all">すべて</option>
+                    </select>
+                </div>       
+                <div class="config-d">
+                    <label for="num-i">問題数</label>
+                    <input type="number" id="num-i" value="30">
+                    <label for="num-i">問</label>
+                </div>                
+            </div>
+            <button onclick="on_click_start();" class="start-button">開始</button>
+        </div>
+        <div class="hide" id="s_quiz">
+            <div style="height: 5vh;"></div>
+            <p id="progress_text">?</p>
+            <progress id="progress"></progress>
+            <div style="height: 5vh;"></div>
+            <h1 class="quiz-text" id="quiz">読み込み中...</h1>
+            <div style="height: 3vh;"></div>
+            <h1 id="correct" style="font-size: 5em;color: red;"></h1>
+            <h1 id="ruby" style="font-size: 2em;color: red;"></h1>
+            <div style="height: 3vh;"></div>
+            <button onclick="hint();" class="hint-button">Hint
+            </button>
+            <input onkeypress="if(event.key == 'Enter')handle_next();" id="inp" class="quiz-input" type="text">
+            <button onclick="handle_next();" id="next" class="start-button">回答</button>
+            <div class="popup" id="popup">
+            <h1 class="popup-text" id="text">正解！</h1>
+        </div>
+        </div>
+        <div id="s_result" class="hide">
+            <h1>結果</h1>
+            <h1 class="title" id="percent">100%</h1>
+            <button onclick="if(params.get('onlyresult')==null){location.reload();}else{reloadWithoutResult();}" class="start-button">もう一度</button>
+            <button onclick="location.href='../index.html';" class="start-button">ホームへ</button>
+            <h2>詳細</h2>
+            <nav id="detail">
+                <table class="result_table">
+                    <thead>
+                        <tr>
+                            <th scope="col">問題</th>
+                            <th scope="col">正誤</th>
+                            <th scope="col">答え</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+                </table>
+            </nav>
+        </div>
+        <footer>
+            <p>StdQuiz made by <a href="https://github.com/taikun24">taikun24</a>.<br>
+                Source code and repport issues form is here.</p>
+        </footer>
+        <script src="activecontent.js"></script>
+        <script src="customhtml.js"></script>
+        <script src="util.js"></script>
+        <script src="main.js"></script>
+        <script src="quizloader.js"></script>
+        <script src="effects.js"></script>
+    </body>
+</html>

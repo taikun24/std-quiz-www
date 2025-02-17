@@ -1,0 +1,17 @@
+<html><body><script>
+function jumpIf(path){
+    if (window.location.pathname.startsWith("/"+path+"/")) {
+        let url = new URL(window.location.href);
+        params = url.searchParams;
+        let params_text = '&';
+        params.keys().forEach(element => {
+            params_text += element + '=';
+            params_text += params.get(element) + '&';
+        });
+        location.replace("/"+path+".html?q=" + window.location.pathname.split("/").pop() + params_text);
+    }
+}
+jumpIf('quiz');
+jumpIf('tool');
+</script>
+</body></html>

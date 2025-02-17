@@ -1,0 +1,7 @@
+{
+    "workbook-voice":{
+        "name": "WORKBOOK音声リンク集",
+        "url": "data/tools/workbook-voice",
+        "js": ["main.js"]
+    }
+}

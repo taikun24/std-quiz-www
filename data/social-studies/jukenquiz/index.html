@@ -1,0 +1,38 @@
+	<link rel="stylesheet" href="../../data/social-studies/jukenquiz/style.css">
+	<div class="wrapper">
+		<h2>Home</h2>
+	</div>
+	<main>
+		<article class="main">
+			<div class="quesss">
+				<h1>問題数:</h2>
+				<input type="text" name="" class="input1" value="20">
+			</div>
+			<div class="items" id="items">
+			<button class="item" onclick="select('地理');">
+				<img src="https://3.bp.blogspot.com/-xQNOYwWqg0c/UguJadClyhI/AAAAAAAAXa0/OkBpN_x_SNM/s800/nihonchizu.png" class="itemimg">
+				<h2 class="itemtext">地理</h2>
+			</button>
+			<button class="item" onclick="select('歴史');">
+				<img src="https://1.bp.blogspot.com/-poZc0saEoQg/Wm1yviL_kLI/AAAAAAABJ7E/18T9oKPrfpoAU7vRIEipTKXspSlJYqhywCLcBGAs/s800/landmark_houryuji.png" class="itemimg">
+				<h2 class="itemtext">歴史</h2>
+			</button>
+			<button class="item" onclick="select('理科');">
+				<img src="https://illustmint.com/wp-content/uploads/2020/12/science_2061.png" class="itemimg">
+				<h2 class="itemtext">理科</h2>
+			</button>
+			
+		</div>
+		<button onclick="jump();" class="button" style="width:50%;margin-left:25%;height: 25%;">
+			開始
+		</button>
+		</article>
+		<aside class="side">
+			<h3><a href="quiz.html">クイックスタート</a></h3>
+			<nav class="sidenav">
+				<ul><a href="quiz.html?nof=5">5問</a></ul>
+				<ul><a href="quiz.html?nof=10">10問</a></ul>
+				<ul><a href="quiz.html?nof=30">30問</a></ul>
+			</nav>
+		</aside>
+	</main>

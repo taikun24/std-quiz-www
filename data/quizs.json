@@ -1,0 +1,34 @@
+{
+    "history-1": {
+        "name": "中１歴史",
+        "genne": "社会",
+        "url": "data/social-studies/history1.txt",
+        "desc": "中学１年生の歴史のクイズです。復習にどうぞ。",
+        "filter":{"3": "期末考査"}
+    },
+    "science-a-1":{
+        "name": "中１理科Ａ",
+        "genne": "理科",
+        "url": "data/science/a-1.txt",
+        "desc": "中学１年生の理科Aのクイズです。(冊子より)",
+        "filter":{"3": "期末考査"}
+    },
+    "hyakuninissyu":{
+        "name": "百人一首穴埋",
+        "genne": "国語",
+        "extensions": ["custom-html"],
+        "tags": ["過去作移植"],
+        "url": "data/japanese/hyakuninissyu",
+        "desc": "百人一首を穴埋めで暗記するクイズです。",
+        "javascript_map": {"game.html": ["data.js", "main.min.js"]}
+    },
+    "jukenquiz":{
+        "name": "中学受験",
+        "genne": "社会",
+        "extensions": ["custom-html"],
+        "tags": ["過去作移植"],
+        "url": "data/social-studies/jukenquiz",
+        "desc": "中学受験用のクイズです。",
+        "javascript_map": {"default": ["indexscript.js"], "quiz.html": ["script.js"]}
+    }
+}
