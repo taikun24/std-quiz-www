@@ -8,7 +8,7 @@ function jumpIf(path){
             params_text += element + '=';
             params_text += params.get(element) + '&';
         });
-        location.replace("/"+path+".html?q=" + window.location.pathname.split("/").pop() + params_text);
+        location.replace(path+".html?q=" + window.location.pathname.split("/").pop() + params_text);
     }
 }
 jumpIf('quiz');
