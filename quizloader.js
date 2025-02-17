@@ -1,6 +1,6 @@
 let filters = [];
 async function load_info(id) {
-    const response = await fetch('../../data/quizs.json');
+    const response = await fetch('../data/quizs.json');
     const json = await response.json();
     if (json[id] === undefined) return { result: false };
     json[id].result = true;
