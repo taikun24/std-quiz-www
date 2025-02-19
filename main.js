@@ -23,7 +23,9 @@ function hasExt(info, extension_name) {
 
 
 function onError(type, error) {
-    location.href = 'error.html?type=' + type + '&error=' + btoa(error);
+    let url = new URL(window.location.href);
+    params = url.searchParams;
+    if (params.get('debug') != undefined) location.href = '../error.html?type=' + type + '&error=' + btoa(error);
 }
 function filterQuiz() {
     let f = document.getElementById('filter-i').value
@@ -58,8 +60,8 @@ window.onload = async function () {
             setTimeout(to_main, 0);
         }
         if (custom_html) { loadCustomHTML(info); return; }
-        quiz = await load_quiz('' + info.url);
-        if (quiz == undefined || quiz.length == 0) onError('invaild_quiz');
+        quiz = await load_quiz('../' + info.url);
+        if (quiz == undefined || quiz.length == 0) onError('invaild_quiz', JSON.stringify(quiz));
         shuffle_array(quiz);
         filters.forEach(element => document.getElementById('filter-i').innerHTML += "<option value='" + element + "'>" + info.filter[element] + "</option>");
         input = document.getElementById('inp');

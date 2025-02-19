@@ -1,6 +1,6 @@
 let filters = [];
 async function load_info(id) {
-    const response = await fetch('data/quizs.json');
+    const response = await fetch('../data/quizs.json');
     const json = await response.json();
     if (json[id] === undefined) return { result: false };
     json[id].result = true;
@@ -17,11 +17,12 @@ async function load_info(id) {
     return info;
 }
 function shuffle_array(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var r = Math.floor(Math.random() * (i + 1));
-        var tmp = array[i];
-        array[i] = array[r];
-        array[r] = tmp;
+    var m = array.length, t, i;
+    while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
     }
 }
 async function load_quiz(path) {

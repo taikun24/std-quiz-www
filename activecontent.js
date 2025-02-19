@@ -1,7 +1,9 @@
 let urlparam = null;
 function loadContent(id, params) {
-    if (path == undefined) path = 'quiz';
-    history.pushState({}, "", "/" + path + "/" + id + '?' + params);
+    if (typeof path === 'undefined') {
+        path = 'quiz';
+    }
+    history.pushState({}, "", "" + path + "/" + id + '?' + params);
 }
 
 window.addEventListener("popstate", () => {

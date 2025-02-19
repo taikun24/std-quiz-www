@@ -5,6 +5,12 @@
         "url": "data/social-studies/history1.txt",
         "desc": "中学１年生の歴史のクイズです。復習にどうぞ。",
         "filter":{"3": "期末考査"}
+    },"geography-1": {
+        "name": "中１地理",
+        "genne": "社会",
+        "url": "data/social-studies/geography-1.txt",
+        "desc": "中学１年生の地理のクイズです。復習にどうぞ。",
+        "filter":{"3": "期末考査"}
     },
     "science-a-1":{
         "name": "中１理科Ａ",
@@ -20,7 +26,7 @@
         "tags": ["過去作移植"],
         "url": "data/japanese/hyakuninissyu",
         "desc": "百人一首を穴埋めで暗記するクイズです。",
-        "javascript_map": {"game.html": ["data.js", "main.min.js"]}
+        "javascript_map": {"game.html": ["data.js", "main.min.js"], "index.html": ["indexscript.js"]}
     },
     "jukenquiz":{
         "name": "中学受験",
