@@ -1,6 +1,7 @@
 <html><body><script>
 function jumpIf(path){
-    if (window.location.pathname.startsWith("/std-quiz-www/"+path+"/")) {
+    let strs = window.location.pathname.split('/')
+    if (strs.length >= 2 && strs[strs.length - 2] == path) {
         let url = new URL(window.location.href);
         params = url.searchParams;
         let params_text = '&';
@@ -8,7 +9,7 @@ function jumpIf(path){
             params_text += element + '=';
             params_text += params.get(element) + '&';
         });
-        location.replace(path+".html?q=" + window.location.pathname.split("/").pop() + params_text);
+        location.replace('../'+path+".html?q=" + window.location.pathname.split("/").pop() + params_text);
     }
 }
 jumpIf('quiz');
