@@ -5,7 +5,8 @@ function jumpIf(path){
         let url = new URL(window.location.href);
         params = url.searchParams;
         let params_text = '&';
-        params.keys().forEach(element => {
+        // Array.from is for iOS(WebKit)
+        Array.from(params.keys()).forEach(element => {
             params_text += element + '=';
             params_text += params.get(element) + '&';
         });

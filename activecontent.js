@@ -8,8 +8,9 @@ function loadContent(id, params) {
 
 window.addEventListener("popstate", () => {
     const id = location.pathname.split("/").pop();
-    document.getElementById("content").textContent = "ページID: " + id;
+    // document.getElementById("content").textContent = "ページID: " + id;
 });
+
 let params;
 // 初回ロード時
 window.addEventListener("DOMContentLoaded", () => {
@@ -18,7 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
     params = url.searchParams;
     urlparam = params.get('q');
     let params_text = '';
-    params.keys().forEach(element => {
+    //Webkit Support
+    Array.from(params.keys()).forEach(element => {
         if (element == 'q') return;
         params_text += element + '=';
         params_text += params.get(element) + '&';
